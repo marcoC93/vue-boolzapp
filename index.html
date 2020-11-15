@@ -14,7 +14,11 @@
                 <main>
                     <aside id="contacts">
                         <div id="header-left">
-
+                            <img src="'img/avatar_1.jpg'" alt="">
+                            <h3> Michele </h3>
+                            <i class="fas fa-circle-notch"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
                         </div>
                         <div id="search-bar">
                         <i class="fas fa-2x fa-search"></i>
@@ -22,11 +26,33 @@
                         </div>
                         <div id="chat-history">
 
+                                <ul v-for="(contact,contactIndex) in contacts" @click="cambioImg(contactIndex)" >
+                                    <li>
+                                        <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
+                                        <h3> {{contact.name}}</h3>
+                                        <span>{{contactIndex}}</span>
+
+                                    </li>
+                                </ul>
+
                         </div>
 
                     </aside>
                     <section id="chat">
+                        <div id="header-right">
 
+                        </div>
+                        <div id="current-chat">
+                             <ul v-for="(message,messageIndex) in contacts[contactIndex].messages">
+                                <li>{{contacts.messages}}</li>
+                            </ul>
+
+                        </div>
+                        <div id="chat-input">
+                            <i class="far fa-smile chat-function"></i>
+                            <input type="text" name="" value="">
+                            <i class="fas fa-location-arrow chat-function"></i>
+                        </div>
                     </section>
                 </main>
             </div>

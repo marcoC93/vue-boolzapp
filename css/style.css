@@ -5,7 +5,7 @@
 
 }
 #root {
-    background: linear-gradient(to bottom, #00bfa5 10% , white 100% ) ;
+    background: linear-gradient(to bottom , #075e54 0% ,#075e54 10% ,#ece5dd 10% , #ece5dd 100% ) ;
     height: 100vh;
 }
 .container {
@@ -19,29 +19,24 @@
 main {
     height: 100%;
 }
+
+/*  Sezione Contatti e Cronoligia chat  */
 #contacts {
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
     width: 30%;
     height: 100% ;
     float: left;
-    background: yellow;
+    background: white;
 }
 #contacts::after {
     display: table;
     content: '';
     clear: both;
 }
-#chat {
-    height: 100%;
-    float: left;
-    background: pink;
-}
+
 #header-left {
-    height: 100px ;
-    background-color: green;
-}
-#header-right {
     height: 100px ;
     background-color: green;
 }
@@ -54,8 +49,67 @@ main {
 #search-bar input {
     flex-grow: 1;
     padding: 10px;
+    margin: 0 10px;
 }
 #chat-history {
     flex-grow: 1;
+    overflow: auto;
+
+}
+#chat-history li {
+    padding: 10px;
+}
+        /* Sezione Chat  */
+#chat {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    float: left;
     background: pink;
+}
+#header-right {
+    height: 100px ;
+    background-color: green;
+}
+#current-chat {
+    flex-grow: 1;
+    background-color: #ece5dd;
+}
+#chat-input {
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+#chat-input input {
+    flex-grow: 1;
+    height: 100%;
+    font-size: 2em;
+}
+#chat-input .chat-function {
+    display: inline-block;
+    font-size: 2em;
+    padding: 20px;
+}
+#chat-history img {
+    width: 50px;
+    height: 50px;
+}
+#chat-history h3 {
+    display: inline-block;
+    padding: 10px;
+}
+#chat-history span {
+    display: inline-block;
+}
+.message {
+
+}
+.received {
+    float: left;
+    color: white;
+}
+.sent {
+    float: right;
+    color: lightgreen;
 }

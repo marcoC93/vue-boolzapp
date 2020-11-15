@@ -1,6 +1,8 @@
 var app = new Vue({
   el: '#root',
   data: {
+
+      contactIndex: 0,
       contacts: [
              {
                       name: 'Michele',
@@ -25,7 +27,7 @@ var app = new Vue({
                       ],
              },
              {
-                      name: 'Fabio',
+                      name: 'Manuela',
                       avatar: '_2',
                       visible: true,
                       messages: [
@@ -85,6 +87,24 @@ var app = new Vue({
                   }
            ],
         },
-      ]
-  }
+    ],
+
+  },
+
+     methods : {
+
+         // cambioImg(messageIndex) {
+         //     this.contactIndex = messageIndex;
+         //     // console.log('pallino cliccato' + index );
+         // }
+
+        messageClass(index) {
+            this.message.status
+        }
+
+
+    }
+
+
 })
+console.log(contactIndex);
