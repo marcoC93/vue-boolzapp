@@ -5,7 +5,7 @@ var app = new Vue({
       contactIndex: 0,
       message_sent: '' ,
       message_received: '',
-      contact_search:'',
+      contact_search: '',
       contacts: [
              {
                       name: 'Michele',
@@ -116,15 +116,21 @@ var app = new Vue({
                         })
                 },1000)
         },
-        research (contact_search) {
-            if (this.contacts.contact.name.includes("contact_search*")) {
-                this.contacts.contact.visible = true ;
-            }
-            else {
-                this.contacts.contact.visible = false ;
-            }
-        }
+
+
+        // research (contact_search) {
+        //
+        //     const searchQuery = () => {
+        //     if (this.contacts.name.includes("contact_search*")) {
+        //           this.contact.visible = true ;
+        //       }
+        //     else {
+        //           this.contact.visible = false ;
+        //       }
+        //   })
+        // }
     }
+
 
 
 })
