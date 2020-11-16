@@ -22,7 +22,10 @@
                         </div>
                         <div id="search-bar">
                         <i class="fas fa-2x fa-search"></i>
-                        <input type="text" name="" value="">
+                        <input type="text" name="" v-model="contact_search">
+                        <i class="fas fa-location-arrow chat-function" @click="research (contact_search)">
+                        </i>
+
                         </div>
                         <div id="chat-history">
 

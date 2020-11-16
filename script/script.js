@@ -4,6 +4,8 @@ var app = new Vue({
 
       contactIndex: 0,
       message_sent: '' ,
+      message_received: '',
+      contact_search:'',
       contacts: [
              {
                       name: 'Michele',
@@ -107,13 +109,21 @@ var app = new Vue({
                 }),
 
                 setTimeout(myFunction, 1000)
-                function myFunction() {
+                function myFunction(responese_message) {
                     this.contacts[this.contactIndex].messages.push(
                         {
                             message: 'ok',
                             status: 'received'
                         })
                 }
+        },
+        research (contact_search) {
+            if (this.contacts.contact.name.includes("contact_search*")) {
+                this.contacts.contact.visible = true ;
+            }
+            else {
+                this.contacts.contact.visible = false ;
+            }
         }
     }
 
