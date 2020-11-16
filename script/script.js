@@ -108,14 +108,13 @@ var app = new Vue({
 
                 }),
 
-                setTimeout(myFunction, 1000)
-                function myFunction(responese_message) {
+                setTimeout (() => {
                     this.contacts[this.contactIndex].messages.push(
                         {
                             message: 'ok',
                             status: 'received'
                         })
-                }
+                },1000)
         },
         research (contact_search) {
             if (this.contacts.contact.name.includes("contact_search*")) {
