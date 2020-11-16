@@ -3,6 +3,7 @@ var app = new Vue({
   data: {
 
       contactIndex: 0,
+      message_sent: '' ,
       contacts: [
              {
                       name: 'Michele',
@@ -93,18 +94,28 @@ var app = new Vue({
 
      methods : {
 
-         // cambioImg(messageIndex) {
-         //     this.contactIndex = messageIndex;
-         //     // console.log('pallino cliccato' + index );
-         // }
+        change_current_contact(contactIndex) {
+            this.contactIndex = contactIndex;
+        },
 
-        messageClass(index) {
-            this.message.status
+        send_message(message_sent) {
+            this.contacts[this.contactIndex].messages.push(
+                {
+                    message: this.message_sent,
+                    status: 'sent',
+
+                }),
+
+                setTimeout(myFunction, 1000)
+                function myFunction() {
+                    this.contacts[this.contactIndex].messages.push(
+                        {
+                            message: 'ok',
+                            status: 'received'
+                        })
+                }
         }
-
-
     }
 
 
 })
-console.log(contactIndex);
