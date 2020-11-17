@@ -13,33 +13,34 @@
             <div class="container">
                 <main>
                     <aside id="contacts">
+                        <!-- Nell'header sono presenti i dati dell'utente e le opzioni relative all'app opportunamente distrubuite -->
                         <div id="header-left">
+                            <!-- qui ci sono le informazioni personali dell'utente  come immagine del profilo, il nome ecc -->
                             <div id="user-info">
                                 <img class="avatar" src="img/profile-picture.png" alt="">
                                 <h3 class="contact_name"> Marco </h3>
                             </div>
-
+                            <!-- Qui ci sono invece le altre opzioni  -->
                             <div id="user-options">
                                 <i class="fas fa-circle-notch"></i>
                                 <i class="fas fa-comment-alt"></i>
                                 <i class="fas fa-ellipsis-v"></i>
                             </div>
-
                         </div>
+                            <!-- Questa é la search bar con la quale tramite una funzione triggherata con il comanto @keyUp e quindi alla pressione del tasto enter(Invio)  -->
                         <div id="search-bar">
                         <i class="fas fa-2x fa-search"></i>
                         <input @keyUp.enter="research(contact_search)" type="text" name="" v-model="contact_search">
-                        <!-- <i class="fas fa-location-arrow chat-function" @click="">
-                        </i> -->
+
 
                         </div>
+                            <!-- Qui c'é l'elenco di tutte le chat avute fino al momento attuale in questo caso vengono generate dinamicamente tramite un ciclo v- fore   -->
                         <div id="chat-history">
-
                                 <ul>
                                     <li  v-for="(contact,contactIndex) in contacts"  @click="change_current_contact(contactIndex)" v-if="contact.visible == true">
                                         <img class="avatar" :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                                         <h3 class="contact_name"> {{contact.name}}</h3>
-                                        <span>{{contactIndex}}</span>
+                                        <small>{{contactIndex}}</small>
 
                                     </li>
                                 </ul>
@@ -47,8 +48,10 @@
                         </div>
 
                     </aside>
+                        <!-- Questa é la sezione destra : qui sono presenti le info sul contatto corrente ed i messaggi della chat -->
                     <section id="chat">
                         <div id="header-right">
+                            <!-- Qui sono le informazioni del profilo -->
                             <div id="chat-contact">
                                 <img class="avatar" :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt="">
                                 <h3 class="contact_name"> {{contacts[contactIndex].name}}
