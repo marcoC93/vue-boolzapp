@@ -118,18 +118,24 @@ var app = new Vue({
         },
 
 
-        // research (contact_search) {
-        //
-        //     const searchQuery = () => {
-        //     if (this.contacts.name.includes("contact_search*")) {
-        //           this.contact.visible = true ;
-        //       }
-        //     else {
-        //           this.contact.visible = false ;
-        //       }
-        //   })
-        // }
-    }
+        research (contact_search) {
+
+            for (var contact in contacts) {
+
+                if (this.contacts.name.includes(this.contact_search)) {
+                      this.contacts.visible = true ;
+                  }
+                else {
+                      this.contacts.visible = false ;
+
+                  }
+
+                }
+
+          }
+      }
+
+
 
 
 
