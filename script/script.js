@@ -119,21 +119,36 @@ var app = new Vue({
         },
 
 
-        research (contact_search) {
+        research(contact_search) {
 
-           this.forEach((contact,contacts ) => {
 
-                if (app.contacts.name.includes(this.contact_search)) {
-                      app.contacts.visible ;
+
+           this.contacts.forEach((contact,index, contacs ) => {
+
+               // se il nome del contatto attuale è filtrato da contact_search
+               const search_string = this.contact_search ;
+               const search_string_capitalized = search_string.charAt(0).toUpperCase() + search_string.slice(1) ;
+               console.log(search_string);
+               console.log(search_string_capitalized);
+                if (contact.name.includes(search_string_capitalized)) {
+
+                    // setta il contatto a visible = true
+                      contact.visible = true;
                 }
                 else {
-                      app.contacts.visible = false ;
+
+                    // altrimenti a visible = false
+                      contact.visible = false ;
 
                     }
             });
 
           }
       }
+
+// forEach((item, i, array) => {
+//
+// });
 
 
 

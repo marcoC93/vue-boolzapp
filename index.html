@@ -28,7 +28,7 @@
                         </div>
                         <div id="search-bar">
                         <i class="fas fa-2x fa-search"></i>
-                        <input @keyUp.enter="contact_search" type="text" name="" v-model="contact_search">
+                        <input @keyUp.enter="research(contact_search)" type="text" name="" v-model="contact_search">
                         <!-- <i class="fas fa-location-arrow chat-function" @click="">
                         </i> -->
 
@@ -36,7 +36,7 @@
                         <div id="chat-history">
 
                                 <ul>
-                                    <li  v-for="(contact,contactIndex) in contacts"  @click="change_current_contact(contactIndex)">
+                                    <li  v-for="(contact,contactIndex) in contacts"  @click="change_current_contact(contactIndex)" v-if="contact.visible == true">
                                         <img class="avatar" :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                                         <h3 class="contact_name"> {{contact.name}}</h3>
                                         <span>{{contactIndex}}</span>
