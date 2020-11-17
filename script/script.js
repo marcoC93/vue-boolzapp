@@ -6,6 +6,7 @@ var app = new Vue({
       message_sent: '' ,
       message_received: '',
       contact_search: '',
+
       contacts: [
              {
                       name: 'Michele',
@@ -120,17 +121,16 @@ var app = new Vue({
 
         research (contact_search) {
 
-            for (var contact in contacts) {
+           this.forEach((contact,contacts ) => {
 
-                if (this.contacts.name.includes(this.contact_search)) {
-                      this.contacts.visible = true ;
-                  }
-                else {
-                      this.contacts.visible = false ;
-
-                  }
-
+                if (app.contacts.name.includes(this.contact_search)) {
+                      app.contacts.visible ;
                 }
+                else {
+                      app.contacts.visible = false ;
+
+                    }
+            });
 
           }
       }
