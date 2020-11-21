@@ -30,7 +30,7 @@
                             <!-- Questa é la search bar con la quale tramite una funzione triggherata con il comanto @keyUp e quindi alla pressione del tasto enter(Invio)  -->
                         <div id="search-bar">
                         <i class="fas fa-2x fa-search"></i>
-                        <input @keyUp.enter="research(contact_search)" type="text" name="" v-model="contact_search">
+                        <input @keyUp="research(contact_search)" type="text" name="" v-model="contact_search">
 
 
                         </div>
@@ -57,6 +57,7 @@
                                 <h3 class="contact_name"> {{contacts[contactIndex].name}}
                                 </h3>
                             </div>
+                            <!-- Qui invece ci sono le opzini relative alla chat in corso rappresentate dalle varie icone  -->
                             <div id="chat-options">
                                 <i class="fas fa-search"></i>
                                 <i class="fas fa-paperclip"></i>
@@ -64,6 +65,7 @@
                             </div>
 
                         </div>
+                        <!--  Tramite un ciclo v-for vengono stampati in questa sezione tuti i messaggi , sia quelli ricevuti che quelli inviati dal contatto e questo verrá constatato dalla classe applicata all messaggio corrispondente in modo dinamico  tenendo conto del messaggio, indice del messaggio all'interno del array contatti con indice del contatto corrente tra quadre   -->
                         <div id="current-chat">
                              <ul >
                                 <li class="message" v-for="(message_obj,messageIndex) in contacts[contactIndex].messages" :class="message_obj.status" @click="change_current_contact()">
@@ -72,6 +74,7 @@
                             </ul>
 
                         </div>
+                        <!-- Qui di seguito invece é presente il sistema di input per mandare un messaggio in chat costituito da un tag input al qualé é collegato l'attributo vue "v-model il quale si va a collegare con una propieta di oggetto vue che verrá riempita da ció che l'utente digiterá in input verrá azionata da una funzione posta in un evento "onclick" " -->
                         <div id="chat-input">
                             <i class="far fa-smile chat-function"></i>
                             <input type="text" name="" value="" v-model="message_sent">

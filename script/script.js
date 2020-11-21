@@ -123,22 +123,36 @@ var app = new Vue({
                 },1000)
         },
 
-
+        // Funzione per cercare i vari contatti e le relative chat
         research(contact_search) {
 
 
 
            this.contacts.forEach((contact,index, contacs ) => {
 
+               // 1a modalitá primordiale
+               // const search_string = this.contact_search.toLowerCase() ;
+
+               // qui l'input dell'utente 'e stato modificato in modo da rendere mauscolo li primo carattere con il metodo .charAt(indice 0 in quanto di tratta della prima lettera) ed unito con la il resto della stringa prendendola completa ma rimuovendo il primo carattere in stringa il quale sarebbe minuscolo
+               // const search_string_capitalized = search_string.charAt(0).toUpperCase() + search_string.slice(1) ;
+
+
+               // Modalitá 2.0 piú solida : la prima versione soffriva di una criticitá che non permetteva di ricercare il contatto digitando caratteri nel mezzo del nominativo oppure alla fine, in quanto ponendo la prima lettera come maiuscola non veniva riconosciuto il contatto essendo case sensitive
+
                // se il nome del contatto attuale è filtrato da contact_search
                // in questa variabile é presente l'input di ricerca contatti dell'utente
-               const search_string = this.contact_search ;
-               // qui l'input dell'utente 'e stato modificato in modo da rendere mauscolo li primo carattere con il metodo .charAt(indice 0 in quanto di tratta della prima lettera) ed unito con la il resto della stringa prendendola completa ma rimuovendo il primo carattere in stringa il quale sarebbe minuscolo
-               const search_string_capitalized = search_string.charAt(0).toUpperCase() + search_string.slice(1) ;
+               // porre la stringa di ricerca utente in minuscolo e condensare il tutto in una variabile cosi da rendere tutto piú leggibile
+               const search_string = this.contact_search.toLowerCase() ;
+
+               //  facciamo la stessa cosa con l'elemento contatto e la  propietá nome e la poniamo in minuscolo e condensata in una variabile
+               const contact_name_lowercase = contact.name.toLowerCase();
+
+               // poi verranno confrontate fra di loro ed eseguita la ricerca e quindi filtrare i vari contatti  
+
                 // DEBUG:
                // console.log(search_string);
                // console.log(search_string_capitalized);
-                if (contact.name.includes(search_string_capitalized)) {
+                if (contact_name_lowercase.includes(search_string)) {
 
                     // setta il contatto a visible = true
                       contact.visible = true;
